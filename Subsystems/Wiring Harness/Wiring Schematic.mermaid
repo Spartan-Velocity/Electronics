@@ -1,0 +1,115 @@
+%%thick is hv thick wires
+%%thin is thin wires
+%%dotted is communication
+
+flowchart TB
+
+subgraph Low Voltage
+ P[Pump]
+ FB[Fuse Box]
+ T[Throttle]
+ LVB{12V battery}
+ PS(Power Switch)
+ VCU[VCU]
+ DELED[Drive-Enabled LED]
+ PLED[Power LED]
+ ES1(E Stop 1)
+ ES2(E Stop 2)
+end
+
+
+
+CB[CANbus]
+LCB[Laptop CANBus Connector]
+
+
+
+subgraph High Voltage
+ subgraph Charger
+  PIN[Power IN]
+  CR[Charger Relay]
+ end
+
+ subgraph Battery
+  BMS[BMS]
+  WT[Wire Taps]
+  TH[Thermistors]
+  HVB{HV battery}
+  MF[Main Fuse]
+  
+  subgraph Relays
+   subgraph Precharge Circuit
+    PCRL(Precharge Relay)
+    PCRS(Precharge Resistor)
+   end
+   
+   GR(Ground Relay)
+   PR(Power Relay)
+   HVP[High Voltage Power]
+  end
+ end
+
+
+ subgraph Motor
+  MC[Motor Controller]
+  M[Motor]
+  MT[Motor Temperature]
+  RS[Resolver]
+ end
+end
+
+
+
+RS232[RS 232 inverter]
+
+
+
+
+
+%%LV fuse box connections
+LVB --- PS --- ES1 --- FB
+FB --- P
+FB --- VCU
+FB --- T
+FB --- ES2 --- MC
+FB --- BMS
+
+%%CANbus
+VCU -.- CB
+CB -.- MC
+CB -.- BMS
+CB -.- LCB
+
+%%VCU
+VCU -.- P
+VCU --- T
+VCU --- DELED
+VCU --- PLED
+
+%%Charger
+PIN === CR === HVB
+CR -.- BMS
+
+%%BMS
+BMS o--o TH
+BMS o--o WT
+
+%%Relays
+HVB === GR
+HVB === MF
+MF === PR
+MF === PCRL === PCRS
+BMS -.- GR
+PCRL -.- MC
+PR -.- MC
+PCRS === HVP
+PR === HVP
+GR === HVP
+
+%%Motor Controller
+HVP === MC
+MC -.- RS232
+MC o--o M
+MC === M
+MC o--o RS
+MC o--o MT
