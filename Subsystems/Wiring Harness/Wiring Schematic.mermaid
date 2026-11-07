@@ -43,8 +43,8 @@ subgraph High Voltage
     PCRS(Precharge Resistor)
    end
    
-   GR(Ground Relay)
-   PR(Power Relay)
+   DR(Discharge Relay)
+   MR(Main Relay)
    HVP[High Voltage Power]
   end
  end
@@ -95,16 +95,16 @@ BMS o--o TH
 BMS o--o WT
 
 %%Relays
-HVB === GR
+HVB === DR
 HVB === MF
-MF === PR
+MF === MR
 MF === PCRL === PCRS
-BMS -.- GR
+BMS -.- DR
 PCRL -.- MC
-PR -.- MC
+MR -.- MC
 PCRS === HVP
-PR === HVP
-GR === HVP
+MR === HVP
+DR === HVP
 
 %%Motor Controller
 HVP === MC
