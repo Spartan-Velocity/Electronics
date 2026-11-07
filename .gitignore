@@ -1,0 +1,28 @@
+# NOTE ON ANCHORING: a pattern with a slash in the middle (".obsidian/cache") only
+# matches at the repo root. Patterns that must match at ANY depth need a "**/" prefix.
+# A pattern with no internal slash ("*.zip", ".pio/") already matches anywhere.
+
+# KiCad noise
+*-backups/
+.history/
+gerbers*/
+*.zip
+*.kicad_prl
+~*.lck
+fp-info-cache
+
+# PlatformIO build output
+.pio/
+
+# Obsidian: keep settings, skip the plugin binaries.
+# Plugins are installed per device through the Obsidian UI instead.
+**/.obsidian/plugins/
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
+**/.obsidian/cache/
+.trash/
+.Trash/
+
+# OS
+.DS_Store
+Thumbs.db

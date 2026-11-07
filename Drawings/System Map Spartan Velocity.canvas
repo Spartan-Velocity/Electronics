@@ -1,0 +1,22 @@
+{
+	"nodes":[
+		{"id":"e8f5c9aed2e5f9f0","type":"text","text":"Complete System Architecture, designed as a MAP.","x":-501,"y":-331,"width":281,"height":91},
+		{"id":"9046342cf0a8dbbb","type":"text","text":"Power's 3 main system's and 3 auxillary devices.","x":-400,"y":80,"width":280,"height":122},
+		{"id":"7822a7e958369d9a","type":"text","text":"Dicharge Control Relay DCL","x":-845,"y":-112,"width":250,"height":60},
+		{"id":"500aa3f48e1c7ddc","type":"text","text":"Drive enable Switch ","x":-845,"y":-21,"width":250,"height":50},
+		{"id":"a9d30fb706f7ea2e","type":"text","text":"Orion BMS 2","x":-817,"y":202,"width":160,"height":60},
+		{"id":"206a072f98d970c9","type":"text","text":"Emergency shutoff Swtich","x":-845,"y":50,"width":250,"height":60},
+		{"id":"3283b6e427f98483","type":"text","text":"CM200DX Inverter","x":-120,"y":232,"width":360,"height":288},
+		{"id":"ba1a8734a0409208","type":"text","text":"Teensy 4.1","x":-657,"y":400,"width":126,"height":60},
+		{"id":"04165a5c76174619","type":"text","text":"Power is enabled though +12v high side switch.","x":-79,"y":-178,"width":279,"height":132}
+	],
+	"edges":[
+		{"id":"78e28735f3c539fd","fromNode":"04165a5c76174619","fromSide":"bottom","toNode":"9046342cf0a8dbbb","toSide":"top"},
+		{"id":"4570b169b5046411","fromNode":"9046342cf0a8dbbb","fromSide":"left","toNode":"a9d30fb706f7ea2e","toSide":"right"},
+		{"id":"74b36846436c861a","fromNode":"9046342cf0a8dbbb","fromSide":"bottom","toNode":"ba1a8734a0409208","toSide":"right"},
+		{"id":"f9304cdfd8234bc1","fromNode":"9046342cf0a8dbbb","fromSide":"bottom","toNode":"3283b6e427f98483","toSide":"left"},
+		{"id":"050cfef3fcc6c819","fromNode":"9046342cf0a8dbbb","fromSide":"left","toNode":"7822a7e958369d9a","toSide":"right"},
+		{"id":"32563f3cc02e939f","fromNode":"9046342cf0a8dbbb","fromSide":"left","toNode":"500aa3f48e1c7ddc","toSide":"right"},
+		{"id":"58f76ce1e75a4961","fromNode":"9046342cf0a8dbbb","fromSide":"left","toNode":"206a072f98d970c9","toSide":"right"}
+	]
+}
